@@ -1,0 +1,32 @@
+body {
+	background-color: #00bd19;
+}
+
+#adventcalendar {
+	width: 525px;
+	height: 800px;
+	background-color: #ff2121;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	border-radius: 15px;
+	border: 1px solid #ff0000;
+	box-shadow: 5px 5px 5px #384039;
+	padding: 0;
+	padding-right: 10px;
+}
+
+.door {
+	width: 98px;
+	height: 98px;
+	background-color: #ff2121;
+	display: inline-block;
+	margin-left: 25px;
+	margin-top: 25px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-right: 1px dashed #9e0505;
+	border-bottom: 1px dashed #9e0505;
+	border-top: 1px dashed #9e0505;
+	border-left: 1px dotted #db1818;
+}
