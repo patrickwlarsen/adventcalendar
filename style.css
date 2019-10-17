@@ -1,5 +1,6 @@
 body {
 	background-color: #00bd19;
+	position: relative;
 }
 
 #adventcalendar {
@@ -16,9 +17,35 @@ body {
 	padding-right: 10px;
 }
 
+#activeDoor {
+	width: 100%;
+	height: 400px;
+	background-color: #bebebe;
+	position: absolute;
+	top: 50;
+}
+#activeDoorTop {
+	position: relative;
+}
+
+#activeDoorClose {
+	position: absolute;
+	right: 0;
+	cursor: pointer;
+	margin: 5px;
+	border: 1px solid black;
+	background-color: cyan;
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	font-family: Verdana;
+}
+
 .door {
 	width: 98px;
-	height: 98px;
+	height: 78px;
 	background-color: #ff2121;
 	display: inline-block;
 	margin-left: 25px;
@@ -29,4 +56,16 @@ body {
 	border-bottom: 1px dashed #9e0505;
 	border-top: 1px dashed #9e0505;
 	border-left: 1px dotted #db1818;
+	color: white;
+	font-family: cursive;
+	text-align: center;
+	padding-top: 20px;
+	font-size: 30px;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+	cursor: pointer;
 }
