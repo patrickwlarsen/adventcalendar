@@ -27,7 +27,8 @@ var adventcalendar = {
 	openDoor: function(door) {
 		var activeDoor = $('#activeDoor');
 		var activeDoorContent = $('#activeDoorContent');
-		activeDoorContent.html(door.video);
+		var vidContent = '<iframe width="420" height="315" src="https://www.youtube.com/embed/' + door.video + '"></iframe>';
+		activeDoorContent.html(vidContent);
 		activeDoor.show();
 	},
 	firstTimeSetup: function() {
@@ -55,7 +56,7 @@ var adventcalendar = {
 			positionsUsed.push(randomPosition);
 		}
 
-		var vids = ["https://www.youtube.com/watch?v=KdftbYqA_VQ","https://www.youtube.com/watch?v=lfpjXcawG60","https://www.youtube.com/watch?v=w1IhkW1ztFo","https://www.youtube.com/watch?v=pXDlzsKmhn4","https://www.youtube.com/watch?v=gpe3nXpnAZc","https://www.youtube.com/watch?v=pHAqJ4F6NSo","https://www.youtube.com/watch?v=RJDY6fDoSzo","https://www.youtube.com/watch?v=HBBwXAPNLr0","https://www.youtube.com/watch?v=LsL8dGj0BLU","https://www.youtube.com/watch?v=3owSSPoTdaE","https://www.youtube.com/watch?v=QoPofJeWuR0","https://www.youtube.com/watch?v=a8O-iLZM-gA","https://www.youtube.com/watch?v=eKRw0W6UVCQ","https://www.youtube.com/watch?v=ljv1fO4qrIw","https://www.youtube.com/watch?v=ebv51QNm2Bk","https://www.youtube.com/watch?v=iUXAHc-ABoY","https://www.youtube.com/watch?v=xCBT-rRHGmk","https://www.youtube.com/watch?v=OKrRCTvjbEY","https://www.youtube.com/watch?v=7DCz1SgByDM","https://www.youtube.com/watch?v=SEIoYyAoXNg","https://www.youtube.com/watch?v=jluxqXp8J18","https://www.youtube.com/watch?v=29s6fS7Y5dY","https://www.youtube.com/watch?v=QSa8KQtIBhU","https://www.youtube.com/watch?v=FGXDKrUoVrw"];
+		var vids = ["KdftbYqA_VQ","lfpjXcawG60","w1IhkW1ztFo","pXDlzsKmhn4","gpe3nXpnAZc","pHAqJ4F6NSo","RJDY6fDoSzo","HBBwXAPNLr0","LsL8dGj0BLU","3owSSPoTdaE","QoPofJeWuR0","a8O-iLZM-gA","eKRw0W6UVCQ","ljv1fO4qrIw","ebv51QNm2Bk","iUXAHc-ABoY","xCBT-rRHGmk","OKrRCTvjbEY","7DCz1SgByDM","SEIoYyAoXNg","jluxqXp8J18","29s6fS7Y5dY","QSa8KQtIBhU","FGXDKrUoVrw"];
 		var comments = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"];
 		for(var i = 0; i < this.doors.length; i++) {
 			this.doors[i].video = vids[i];
