@@ -1,7 +1,6 @@
-var debug = true;
 var adventcalendar = {
+	debug: false,
 	init: function() {
-		console.log('init');
 		if(adventcalendar.persistence.load() != null) {
 			var data = adventcalendar.persistence.load();
 			this.doors = data.doors;
@@ -11,7 +10,7 @@ var adventcalendar = {
 		adventcalendar.setupCalendar();
 		adventcalendar.initDoors();
 		adventcalendar.initActiveDoor();
-		if(debug) {
+		if(adventcalendar.debug) {
 			//adventcalendar.testVideos();	
 		}
 	},
@@ -59,7 +58,7 @@ var adventcalendar = {
 		var activeDoorVideo = $('#activeDoorVideo');
 		var activeDoorComment = $('#activeDoorComment');
 		var activeDoorImage = $('#activeDoorImage');
-		if(new Date() >= door.openDate || debug) {
+		if(new Date() >= door.openDate || adventcalendar.debug) {
 			var vidContent = '<iframe width="420" height="315" src="https://www.youtube.com/embed/' + door.video + '" autoplay="true"></iframe>';
 			activeDoorVideo.html(vidContent);
 			activeDoorComment.html('<p>' + door.comment + '</p>');
@@ -133,6 +132,26 @@ var adventcalendar = {
 		}
 	}
 };
+
+document.addEventListener("keydown", keyDownTextField, false);
+var progress = [];
+function keyDownTextField(e) {
+	var keyCode = e.keyCode;
+	var rageCage = false;
+	switch(keyCode) {
+		case 82: progress = [82]; break;
+		case 65: if(progress.length == 1 && progress[0] == 82) { progress.push(65); } else if(progress.length == 5 && progress[0] == 82 && progress[1] == 65 && progress[2] == 71 && progress[3] == 69 && progress[4] == 67) { progress.push(65); } else { progress = []; } break;
+		case 71: if(progress.length == 2 && progress[0] == 82 && progress[1] == 65) { progress.push(71); } else if(progress.length == 6 && progress[0] == 82 && progress[1] == 65 && progress[2] == 71 && progress[3] == 69 && progress[4] == 67 && progress[5] == 65 ) { progress.push(71); } else { progress = []; } break;
+		case 69: if(progress.length == 3 && progress[0] == 82 && progress[1] == 65 && progress[2] == 71) { progress.push(69); } else if(progress.length == 7 && progress[0] == 82 && progress[1] == 65 && progress[2] == 71 && progress[3] == 69 && progress[4] == 67 && progress[5] == 65 && progress[6] == 71) { rageCage = true; } else { progress = []; } break;
+		case 67: if(progress.length == 4 && progress[0] == 82 && progress[1] == 65 && progress[2] == 71 && progress[3] == 69) { progress.push(67); } else { progress = []; } break;
+	}
+	if(rageCage) {
+		adventcalendar.debug = true;
+		console.log('go');
+		$('body').css('background-image', 'url("https://consequenceofsound.net/wp-content/uploads/2018/09/cage-rage-memes.png?w=807")');
+		$('body').css('background-repeat', 'repeat');
+	}
+}
 
 $(document).ready(function() {
 	adventcalendar.init();
