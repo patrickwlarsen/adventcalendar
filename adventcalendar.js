@@ -1,8 +1,13 @@
-var debug = false;
+var debug = true;
 var adventcalendar = {
 	init: function() {
 		console.log('init');
-		adventcalendar.firstTimeSetup();
+		if(adventcalendar.persistence.load() != null) {
+			var data = adventcalendar.persistence.load();
+			this.doors = data.doors;
+		} else {
+			adventcalendar.firstTimeSetup();
+		}
 		adventcalendar.setupCalendar();
 		adventcalendar.initDoors();
 		adventcalendar.initActiveDoor();
@@ -15,6 +20,8 @@ var adventcalendar = {
 			$($('.door')[i]).on('click', function() {
 				var doorObj = adventcalendar.doors[(parseInt($(this).attr('number')) - 1)];
 				console.log('door clicked!', doorObj);
+				$($('.door')[i]).removeClass('unopened');
+				$($('.door')[i]).addClass('opened');
 				adventcalendar.openDoor(doorObj);
 			});
 		});
@@ -37,36 +44,13 @@ var adventcalendar = {
 	},
 	persistence: {
 		save: function() {
-			var name = 'adventcalendar';
-			var value = 'PTEST';
-			adventcalendar.persistence.setCookie(name, value, 365);
+			var data = {
+				doors: adventcalendar.doors
+			};
+			localStorage.setItem('adventcalendar', JSON.stringify(data));
 		},
 		load: function() {
-			var name = 'adventcalendar';
-			var value = adventcalendar.persistence.getCookie(name);
-		    console.log('loaded: ', value);
-		},
-		setCookie: function(cname,cvalue,exdays) {
-		  var d = new Date();
-		  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-		  var expires = "expires="+ d.toUTCString();
-		  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-		},
-		getCookie: function(cname) {
-		  var name = cname + "=";
-		  var decodedCookie = decodeURIComponent(document.cookie);
-		  console.log('decodedCookie:',decodedCookie);
-		  var ca = decodedCookie.split(';');
-		  for(var i = 0; i <ca.length; i++) {
-		    var c = ca[i];
-		    while (c.charAt(0) == ' ') {
-		      c = c.substring(1);
-		    }
-		    if (c.indexOf(name) == 0) {
-		      return c.substring(name.length, c.length);
-		    }
-		  }
-		  return "";
+			return JSON.parse(localStorage.getItem('adventcalendar'));
 		}
 	},
 	openDoor: function(door) {
@@ -79,7 +63,14 @@ var adventcalendar = {
 			var vidContent = '<iframe width="420" height="315" src="https://www.youtube.com/embed/' + door.video + '" autoplay="true"></iframe>';
 			activeDoorVideo.html(vidContent);
 			activeDoorComment.html('<p>' + door.comment + '</p>');
+			if([6, 13, 20].indexOf(door.number) > -1) {
+				console.log('yes');
+				activeDoorComment.append('<a class="pluglink" href="https://plug.dj/tardokings" target="_blank">Plug DJ</a>');
+			}
 			activeDoor.show();
+			door.opened = true;
+			adventcalendar.persistence.save();
+			console.log(door);
 		} else {
 			var vidContent = '<iframe width="420" height="315" src="https://www.youtube.com/embed/l9bLoheF3uc?start=10&autoplay=true"></iframe>';
 			activeDoorVideo.html(vidContent);
@@ -89,6 +80,7 @@ var adventcalendar = {
 		}
 	},
 	firstTimeSetup: function() {
+		console.log('generating new data');
 		this.doors = [];
 		var positionsUsed = [];
 		for(var i = 0; i < 24; i++) {
@@ -115,13 +107,16 @@ var adventcalendar = {
 		}
 
 		var vids = ["vwrvbjBF7YQ","lfpjXcawG60","8xeBGx2bfxc","pXDlzsKmhn4","gpe3nXpnAZc","pHAqJ4F6NSo","RJDY6fDoSzo","HBBwXAPNLr0","LsL8dGj0BLU","3owSSPoTdaE","QoPofJeWuR0","a8O-iLZM-gA","eKRw0W6UVCQ","ljv1fO4qrIw","ebv51QNm2Bk","iUXAHc-ABoY","xCBT-rRHGmk","OKrRCTvjbEY","7DCz1SgByDM","SEIoYyAoXNg","29s6fS7Y5dY","QSa8KQtIBhU","FGXDKrUoVrw", "SFpiOoWFNNg"];
-		var comments = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","YMAL bliver gratis!","Glaedelig jul!!"];
+		var comments = ["1","2","3","4","5","Idag er der julemusik paa pluggen :-)","7","8","9","10","11","12","Julemusik paa pluggen woohooo!","14","15","16","17","18","19","Julemanden er DJ paa pluggen - og han har lovet at han ikke spiller Wham!","21","22","YMAL bliver gratis!","Glaedelig jul!!"];
+		//fredag = 6, 13, 20
 		//var comments = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"];
 		for(var i = 0; i < this.doors.length; i++) {
 			this.doors[i].video = vids[i];
 			this.doors[i].comment = comments[i];
 			this.doors[i].openDate = new Date(2019, 11, i+1);
 		}
+		adventcalendar.persistence.save();
+
 	},
 	setupCalendar: function() {
 		var calendarDiv = $('#adventcalendar');
