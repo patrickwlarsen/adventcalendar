@@ -105,9 +105,9 @@ var adventcalendar = {
 			positionsUsed.push(randomPosition);
 		}
 
-		var vids = ["vwrvbjBF7YQ","lfpjXcawG60","8xeBGx2bfxc","pXDlzsKmhn4","gpe3nXpnAZc","pHAqJ4F6NSo","RJDY6fDoSzo","HBBwXAPNLr0","LsL8dGj0BLU","3owSSPoTdaE","QoPofJeWuR0","a8O-iLZM-gA","eKRw0W6UVCQ","ljv1fO4qrIw","ebv51QNm2Bk","iUXAHc-ABoY","xCBT-rRHGmk","OKrRCTvjbEY","7DCz1SgByDM","SEIoYyAoXNg","29s6fS7Y5dY","QSa8KQtIBhU","FGXDKrUoVrw", "SFpiOoWFNNg"];
-		var comments = ["1","2","3","4","5","Idag er der julemusik paa pluggen :-)","7","8","9","10","11","12","Julemusik paa pluggen woohooo!","14","15","16","17","18","19","Julemanden er DJ paa pluggen - og han har lovet at han ikke spiller Wham!","21","22","YMAL bliver gratis!","Glaedelig jul!!"];
 		//fredag = 6, 13, 20
+		var vids = ["vwrvbjBF7YQ","lfpjXcawG60","8xeBGx2bfxc","pXDlzsKmhn4","gpe3nXpnAZc","pHAqJ4F6NSo","RJDY6fDoSzo","HBBwXAPNLr0","LsL8dGj0BLU","3owSSPoTdaE","QoPofJeWuR0","a8O-iLZM-gA","eKRw0W6UVCQ","ljv1fO4qrIw","ebv51QNm2Bk","iUXAHc-ABoY","xCBT-rRHGmk","OKrRCTvjbEY","7DCz1SgByDM","SEIoYyAoXNg","29s6fS7Y5dY","QSa8KQtIBhU","ZsRWF4erCwE", "SFpiOoWFNNg"];
+		var comments = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","YMAL bliver gratis!","Glaedelig jul!!"];
 		//var comments = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"];
 		for(var i = 0; i < this.doors.length; i++) {
 			this.doors[i].video = vids[i];
