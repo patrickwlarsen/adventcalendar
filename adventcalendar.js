@@ -18,9 +18,6 @@ var adventcalendar = {
 		$('.door').each(function(i, v) {
 			$($('.door')[i]).on('click', function() {
 				var doorObj = adventcalendar.doors[(parseInt($(this).attr('number')) - 1)];
-				console.log('door clicked!', doorObj);
-				$($('.door')[i]).removeClass('unopened');
-				$($('.door')[i]).addClass('opened');
 				adventcalendar.openDoor(doorObj);
 			});
 		});
@@ -59,6 +56,8 @@ var adventcalendar = {
 		var activeDoorComment = $('#activeDoorComment');
 		var activeDoorImage = $('#activeDoorImage');
 		if(new Date() >= door.openDate || adventcalendar.debug) {
+			$($('.door')[door.position-1]).removeClass('unopened');
+			$($('.door')[door.position-1]).addClass('opened');
 			var vidContent = '<iframe width="420" height="315" src="https://www.youtube.com/embed/' + door.video + '" autoplay="true"></iframe>';
 			activeDoorVideo.html(vidContent);
 			activeDoorComment.html('<p>' + door.comment + '</p>');
@@ -137,17 +136,16 @@ document.addEventListener("keydown", keyDownTextField, false);
 var progress = [];
 function keyDownTextField(e) {
 	var keyCode = e.keyCode;
-	var rageCage = false;
+	var snyd = false;
 	switch(keyCode) {
-		case 82: progress = [82]; break;
-		case 65: if(progress.length == 1 && progress[0] == 82) { progress.push(65); } else if(progress.length == 5 && progress[0] == 82 && progress[1] == 65 && progress[2] == 71 && progress[3] == 69 && progress[4] == 67) { progress.push(65); } else { progress = []; } break;
-		case 71: if(progress.length == 2 && progress[0] == 82 && progress[1] == 65) { progress.push(71); } else if(progress.length == 6 && progress[0] == 82 && progress[1] == 65 && progress[2] == 71 && progress[3] == 69 && progress[4] == 67 && progress[5] == 65 ) { progress.push(71); } else { progress = []; } break;
-		case 69: if(progress.length == 3 && progress[0] == 82 && progress[1] == 65 && progress[2] == 71) { progress.push(69); } else if(progress.length == 7 && progress[0] == 82 && progress[1] == 65 && progress[2] == 71 && progress[3] == 69 && progress[4] == 67 && progress[5] == 65 && progress[6] == 71) { rageCage = true; } else { progress = []; } break;
-		case 67: if(progress.length == 4 && progress[0] == 82 && progress[1] == 65 && progress[2] == 71 && progress[3] == 69) { progress.push(67); } else { progress = []; } break;
+		case 83: progress = [83]; break;
+		case 78: if(progress.length == 1 && progress[0] == 83) { progress.push(78); } else { progress = []; } break;
+		case 89: if(progress.length == 2 && progress[0] == 83 && progress[1] == 78) { progress.push(89); } else { progress = []; } break;
+		case 68: if(progress.length == 3 && progress[0] == 83 && progress[1] == 78 && progress[2] == 89) { snyd = true; } else { progress = []; } break;
+		default: progress = [];
 	}
-	if(rageCage) {
+	if(snyd) {
 		adventcalendar.debug = true;
-		console.log('go');
 		$('body').css('background-image', 'url("https://consequenceofsound.net/wp-content/uploads/2018/09/cage-rage-memes.png?w=807")');
 		$('body').css('background-repeat', 'repeat');
 	}
