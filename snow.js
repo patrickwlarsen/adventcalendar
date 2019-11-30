@@ -93,7 +93,7 @@
    * @return {Void}
    */
   function setup() {
-    var number = 500,
+    var number = 100,
         particle,
         i;
 
