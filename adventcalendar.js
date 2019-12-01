@@ -55,7 +55,21 @@ var adventcalendar = {
 		var activeDoorVideo = $('#activeDoorVideo');
 		var activeDoorComment = $('#activeDoorComment');
 		var activeDoorImage = $('#activeDoorImage');
-		if(new Date() >= door.openDate || adventcalendar.debug) {
+		
+		var doorMonth = door.openDate.substring(5,7);
+		var doorDate = parseInt(door.openDate.substring(8,10)) + 1;
+
+		console.log(doorDate);
+		console.log(new Date().getDate());
+		console.log(new Date().getDate() >= doorDate);
+		console.log(door.openDate);
+		console.log(new Date());
+
+		var doorCanOpen = false;
+		if(doorMonth == 11 || new Date().getDate() >= doorDate) {
+			doorCanOpen = true;
+		}
+		if(doorCanOpen || adventcalendar.debug) {
 			$($('.door')[door.position-1]).removeClass('unopened');
 			$($('.door')[door.position-1]).addClass('opened');
 			var vidContent = '<iframe width="420" height="315" src="https://www.youtube.com/embed/' + door.video + '" autoplay="true"></iframe>';
