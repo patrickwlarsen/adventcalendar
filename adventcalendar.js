@@ -7,6 +7,8 @@ var adventcalendar = {
 		} else {
 			adventcalendar.firstTimeSetup();
 		}
+		if(this.doors)
+
 		adventcalendar.setupCalendar();
 		adventcalendar.initDoors();
 		adventcalendar.initActiveDoor();
@@ -55,15 +57,15 @@ var adventcalendar = {
 		var activeDoorVideo = $('#activeDoorVideo');
 		var activeDoorComment = $('#activeDoorComment');
 		var activeDoorImage = $('#activeDoorImage');
-		
-		var doorMonth = door.openDate.substring(5,7);
-		var doorDate = parseInt(door.openDate.substring(8,10)) + 1;
+		console.log(door.openDate);
+		var doorMonth = door.openDate.toString().substring(5,7);
+		var doorDate = parseInt(door.openDate.toString().substring(8,10));
 
-		console.log(doorDate);
+		/*console.log(doorDate);
 		console.log(new Date().getDate());
 		console.log(new Date().getDate() >= doorDate);
 		console.log(door.openDate);
-		console.log(new Date());
+		console.log(new Date());*/
 
 		var doorCanOpen = false;
 		if(doorMonth == 11 || new Date().getDate() >= doorDate) {
@@ -79,6 +81,7 @@ var adventcalendar = {
 				console.log('yes');
 				activeDoorComment.append('<a class="pluglink" href="https://plug.dj/tardokings" target="_blank">Plug DJ</a>');
 			}
+			activeDoorImage.html('');
 			activeDoor.show();
 			door.opened = true;
 			adventcalendar.persistence.save();
