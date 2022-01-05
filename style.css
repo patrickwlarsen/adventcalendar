@@ -9,138 +9,198 @@
 	E
 */
 body {
-	background-color: #00bd19;
-	position: relative;
-	background-image: url('img/decoration-cornor.png');
-	background-repeat: no-repeat;
-	background-position: right 0px top 0px;
-	background-size: 300px 300px;
+  background-color: #00bd19;
+  position: relative;
+  background-image: url('img/decoration-cornor.png');
+  background-repeat: no-repeat;
+  background-position: right 0px top 0px;
+  background-size: 300px 300px;
 }
 
 #tree {
-	background-image: url('img/elf.png');
-	background-repeat: no-repeat;
-	background-position: left 0px bottom 0px;
-	background-size: 400px 400px;
-	width: 400px;
-	height: 400px;
-	position: absolute;
-	bottom: 0;
-	right: 0px;
-	z-index: -1;
+  background-image: url('img/elf.png');
+  background-repeat: no-repeat;
+  background-position: left 0px bottom 0px;
+  background-size: 400px 400px;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  z-index: -1;
 }
 
 #elf {
-	background-image: url('img/tree.png');
-	background-repeat: no-repeat;
-	background-position: left 0px bottom 0px;
-	background-size: 600px 600px;
-	width: 600px;
-	height: 1200px;
-	position: absolute;
-	bottom: 0;
-	left: -50px;
-	z-index: -1;
+  background-image: url('img/tree.png');
+  background-repeat: no-repeat;
+  background-position: left 0px bottom 0px;
+  background-size: 600px 600px;
+  width: 600px;
+  height: 1200px;
+  position: absolute;
+  bottom: 0;
+  left: -50px;
+  z-index: -1;
 }
 
 #adventcalendar {
-	width: 525px;
-	height: 800px;
-	background-color: #ff2121;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 50px;
-	border-radius: 15px;
-	border: 1px solid #ff0000;
-	box-shadow: 5px 5px 5px #384039;
-	padding: 0;
-	padding-right: 10px;
+  width: 525px;
+  height: 800px;
+  background-color: #ff2121;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border-radius: 15px;
+  border: 1px solid #ff0000;
+  box-shadow: 5px 5px 5px #384039;
+  padding: 0;
+  padding-right: 10px;
 }
 
 #activeDoor {
-	width: 80%;
-	height: auto;
-	background-color: #fafafa;
-	position: absolute;
-	top: 50;
-	left: 10%;
-	border-radius: 5px;
-	border: 1px solid black;
+  width: 80%;
+  height: auto;
+  background-color: #fafafa;
+  position: absolute;
+  top: 50;
+  left: 10%;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 #activeDoorTop {
-	position: relative;
+  position: relative;
 }
 
 #activeDoorClose {
-	position: absolute;
-	right: 0;
-	cursor: pointer;
-	margin: 5px;
-	border: 1px solid black;
-	background-color: cyan;
-	width: 20px;
-	height: 20px;
-	font-size: 20px;
-	padding-left: 5px;
-	padding-bottom: 5px;
-	font-family: Verdana;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  margin: 5px;
+  border: 1px solid black;
+  background-color: cyan;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  font-family: Verdana;
 }
 
 #activeDoorVideo {
-	width: 420px;
-	height: 315px;
-	margin-right: auto;
-	margin-left: auto;
+  width: 420px;
+  height: 315px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #activeDoorComment {
-	font-family: Comic Sans MS;
-	text-align: center;
+  font-family: Comic Sans MS;
+  text-align: center;
 }
 .door {
-	width: 98px;
-	height: 78px;
-	background-color: #ff2121;
-	display: inline-block;
-	margin-left: 25px;
-	margin-top: 25px;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-right: 1px dashed #9e0505;
-	border-bottom: 1px dashed #9e0505;
-	border-top: 1px dashed #9e0505;
-	border-left: 1px dotted #db1818;
-	color: white;
-	font-family: cursive;
-	text-align: center;
-	padding-top: 20px;
-	font-size: 30px;
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-khtml-user-select: none; /* Konqueror HTML */
-	-moz-user-select: none; /* Old versions of Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
-	cursor: pointer;
+  width: 98px;
+  height: 78px;
+  background-color: #ff2121;
+  display: inline-block;
+  margin-left: 25px;
+  margin-top: 25px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-right: 1px dashed #9e0505;
+  border-bottom: 1px dashed #9e0505;
+  border-top: 1px dashed #9e0505;
+  border-left: 1px dotted #db1818;
+  color: white;
+  font-family: cursive;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 30px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+  cursor: pointer;
 }
 
 .opened {
-	color: rgba(0,0,0,0.1);
-	border: 1px solid #cc0202;
-	background-color: #e41d1d;
+  color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #cc2727;
+  background-color: #e41d1d;
+}
+
+.subheader {
+  font-family: cursive;
+  color: rgb(76, 105, 238);
+  text-shadow: 1px 2px black;
+  text-align: center;
 }
 
 .header {
-	font-family: cursive;
-	color: red;
-	text-shadow: 1px 2px black;
-	text-align: center;
+  font-family: cursive;
+  color: red;
+  text-shadow: 1px 2px black;
+  text-align: center;
 }
 
 .pluglink {
-	background-color: yellow;
-	padding: 10px 50px 15px 50px;
-	margin: 10px;
-	border-radius: 10px;
-	border: 1px solid black;
+  background-color: yellow;
+  padding: 10px 50px 15px 50px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+@media only screen and (max-device-width: 480px) {
+  /* styles for mobile browsers smaller than 480px; (iPhone) */
+  #adventcalendar {
+    width: 90%;
+    height: auto;
+  }
+
+  .door {
+    background-color: #ca1919;
+    width: 150px;
+    padding-top: 50px;
+    font-size: 50px;
+    height: 125px;
+    margin: 1;
+    margin-top: 25px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 3px dashed #08020261;
+    border-bottom: 3px dashed #08020261;
+    border-top: 3px dashed #08020261;
+    border-left: 3px dotted #08020261;
+    margin-left: 50px;
+  }
+
+  .opened {
+    color: rgba(0, 0, 0, 0.3);
+    border: 3px solid #08020261;
+    background-color: #e41d1d;
+  }
+
+  #activeDoorVideo iframe {
+    width: 100%;
+    min-height: 600px;
+  }
+
+  #activeDoor {
+    width: 100%;
+    height: auto;
+    background-color: #fafafa;
+    position: absolute;
+    top: 50;
+    left: 0;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+
+  #activeDoorVideo {
+    width: 100%;
+    height: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
